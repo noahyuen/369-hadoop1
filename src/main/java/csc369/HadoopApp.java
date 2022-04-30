@@ -22,6 +22,7 @@ public class HadoopApp {
 
 	if (otherArgs.length < 3) {
 	    System.out.println("Expected parameters: <job class> <input dir> <output dir>");
+		System.out.println("Test comment");
 	    System.exit(-1);
 	} else if ("WordCount".equalsIgnoreCase(otherArgs[0])) {
 	    job.setReducerClass(WordCount.ReducerImpl.class);
