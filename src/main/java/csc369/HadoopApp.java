@@ -43,6 +43,16 @@ public class HadoopApp {
 	    job.setMapperClass(Query4.MapperImpl.class);
 	    job.setOutputKeyClass(Query4.OUTPUT_KEY_CLASS);
 	    job.setOutputValueClass(Query4.OUTPUT_VALUE_CLASS);
+	} else if ("Query5".equalsIgnoreCase(otherArgs[0])) {
+		job.setReducerClass(Query5.ReducerImpl.class);
+		job.setMapperClass(Query5.MapperImpl.class);
+		job.setOutputKeyClass(Query5.OUTPUT_KEY_CLASS);
+		job.setOutputValueClass(Query5.OUTPUT_VALUE_CLASS);
+	} else if ("Query6".equalsIgnoreCase(otherArgs[0])) {
+		job.setReducerClass(Query6.ReducerImpl.class);
+		job.setMapperClass(Query6.MapperImpl.class);
+		job.setOutputKeyClass(Query6.OUTPUT_KEY_CLASS);
+		job.setOutputValueClass(Query6.OUTPUT_VALUE_CLASS);
 	} else if ("WordCount".equalsIgnoreCase(otherArgs[0])) {
 		job.setReducerClass(WordCount.ReducerImpl.class);
 		job.setMapperClass(WordCount.MapperImpl.class);

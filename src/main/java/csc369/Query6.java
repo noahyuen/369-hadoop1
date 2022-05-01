@@ -12,7 +12,7 @@ import org.apache.hadoop.mapreduce.Reducer;
 import org.apache.hadoop.io.WritableComparable;
 import org.apache.hadoop.io.WritableComparator;
 
-public class Query5 {
+public class Query6 {
 
     public static final Class OUTPUT_KEY_CLASS = Text.class;
     public static final Class OUTPUT_VALUE_CLASS = IntWritable.class;
@@ -24,16 +24,23 @@ public class Query5 {
         protected void map(LongWritable key, Text value,
                            Context context) throws IOException, InterruptedException {
             String[] sa = value.toString().split(" ");
-            String[] sa2 = sa[3].split("/");
-            String month = sa2[1];
-            String year = sa2[2].split(":")[0];
+            // number of bytes for current request
+            IntWritable bytes = new IntWritable();
+            bytes.set(Integer.parseInt(sa[9]));
+
+            String temp = value.toString().split(":")[0];
+            String day_month_year[] = temp.split("\\[")[1].split("/");
+
             StringBuilder sb = new StringBuilder();
-            sb.append(month);
+            sb.append(day_month_year[0]);
             sb.append(" ");
-            sb.append(year);
-            Text monthYear = new Text();
-            monthYear.set(sb.toString());
-            context.write(monthYear, one);
+            sb.append(day_month_year[1]);
+            sb.append(" ");
+            sb.append(day_month_year[2]);
+
+            Text calendarDay = new Text();
+            calendarDay.set(sb.toString());
+            context.write(calendarDay, bytes);
         }
     }
 
@@ -54,4 +61,3 @@ public class Query5 {
         }
     }
 }
-
