@@ -22,8 +22,22 @@ public class HadoopApp {
 
 	if (otherArgs.length < 3) {
 	    System.out.println("Expected parameters: <job class> <input dir> <output dir>");
-		System.out.println("Test comment");
 	    System.exit(-1);
+	} else if ("Query1".equalsIgnoreCase(otherArgs[0])) {
+		job.setReducerClass(Query1.ReducerImpl.class);
+		job.setMapperClass(Query1.MapperImpl.class);
+		job.setOutputKeyClass(Query1.OUTPUT_KEY_CLASS);
+		job.setOutputValueClass(Query1.OUTPUT_VALUE_CLASS);
+	} else if ("Query2".equalsIgnoreCase(otherArgs[0])) {
+		job.setReducerClass(Query2.ReducerImpl.class);
+		job.setMapperClass(Query2.MapperImpl.class);
+		job.setOutputKeyClass(Query2.OUTPUT_KEY_CLASS);
+		job.setOutputValueClass(Query2.OUTPUT_VALUE_CLASS);
+	} else if ("Query3".equalsIgnoreCase(otherArgs[0])) {
+		job.setReducerClass(Query3.ReducerImpl.class);
+		job.setMapperClass(Query3.MapperImpl.class);
+		job.setOutputKeyClass(Query3.OUTPUT_KEY_CLASS);
+		job.setOutputValueClass(Query3.OUTPUT_VALUE_CLASS);
 	} else if ("WordCount".equalsIgnoreCase(otherArgs[0])) {
 	    job.setReducerClass(WordCount.ReducerImpl.class);
 	    job.setMapperClass(WordCount.MapperImpl.class);
