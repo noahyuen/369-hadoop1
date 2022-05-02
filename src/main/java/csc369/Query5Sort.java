@@ -29,15 +29,15 @@ public class Query5Sort {
                            Context context) throws IOException, InterruptedException {
 
             Map<String, String> monthToNumber = new HashMap<String, String>();
-            monthToNumber.put("Jan", "1");
-            monthToNumber.put("Feb", "2");
-            monthToNumber.put("Mar", "3");
-            monthToNumber.put("Apr", "4");
-            monthToNumber.put("May", "5");
-            monthToNumber.put("Jun", "6");
-            monthToNumber.put("Jul", "7");
-            monthToNumber.put("Aug", "8");
-            monthToNumber.put("Sept", "9");
+            monthToNumber.put("Jan", "01");
+            monthToNumber.put("Feb", "02");
+            monthToNumber.put("Mar", "03");
+            monthToNumber.put("Apr", "04");
+            monthToNumber.put("May", "05");
+            monthToNumber.put("Jun", "06");
+            monthToNumber.put("Jul", "07");
+            monthToNumber.put("Aug", "08");
+            monthToNumber.put("Sept", "09");
             monthToNumber.put("Oct", "10");
             monthToNumber.put("Nov", "11");
             monthToNumber.put("Dec", "12");
@@ -48,9 +48,9 @@ public class Query5Sort {
 
             if (monthToNumber.containsKey(month)) {
                 StringBuilder sb = new StringBuilder();
-                sb.append(monthToNumber.get(month));
-                sb.append("/");
                 sb.append(year);
+                sb.append("/");
+                sb.append(monthToNumber.get(month));
                 Text date = new Text();
                 date.set(sb.toString());
                 IntWritable bytes = new IntWritable();
@@ -85,13 +85,13 @@ public class Query5Sort {
             numberToMonth.put(11, "Nov");
             numberToMonth.put(12, "Dec");
 
-            Integer monthNumber = Integer.parseInt(month_year[0]);
+            Integer monthNumber = Integer.parseInt(month_year[1]);
 
             if (numberToMonth.containsKey(monthNumber)) {
                 StringBuilder sb = new StringBuilder();
                 sb.append(numberToMonth.get(monthNumber));
                 sb.append(" ");
-                sb.append(month_year[1]);
+                sb.append(month_year[0]);
 
                 Text monthAndYear = new Text();
                 monthAndYear.set(sb.toString());
