@@ -29,7 +29,7 @@ public class Query5 {
             String year = sa2[2].split(":")[0];
             StringBuilder sb = new StringBuilder();
             sb.append(month);
-            sb.append(" ");
+            sb.append("/");
             sb.append(year);
             Text monthYear = new Text();
             monthYear.set(sb.toString());

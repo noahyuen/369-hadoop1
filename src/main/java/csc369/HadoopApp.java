@@ -28,6 +28,11 @@ public class HadoopApp {
 		job.setMapperClass(Query1.MapperImpl.class);
 		job.setOutputKeyClass(Query1.OUTPUT_KEY_CLASS);
 		job.setOutputValueClass(Query1.OUTPUT_VALUE_CLASS);
+	} else if ("Query1Sort".equalsIgnoreCase(otherArgs[0])) {
+		// job.setReducerClass(Query1Sort.ReducerImpl.class);
+		job.setMapperClass(Query1Sort.MapperImpl.class);
+		job.setOutputKeyClass(Query1Sort.OUTPUT_KEY_CLASS);
+		job.setOutputValueClass(Query1Sort.OUTPUT_VALUE_CLASS);
 	} else if ("Query2".equalsIgnoreCase(otherArgs[0])) {
 		job.setReducerClass(Query2.ReducerImpl.class);
 		job.setMapperClass(Query2.MapperImpl.class);
@@ -43,26 +48,29 @@ public class HadoopApp {
 	    job.setMapperClass(Query4.MapperImpl.class);
 	    job.setOutputKeyClass(Query4.OUTPUT_KEY_CLASS);
 	    job.setOutputValueClass(Query4.OUTPUT_VALUE_CLASS);
+	} else if ("Query4Sort".equalsIgnoreCase(otherArgs[0])) {
+		job.setMapperClass(Query4Sort.MapperImpl.class);
+		job.setOutputKeyClass(Query4Sort.OUTPUT_KEY_CLASS);
+		job.setOutputValueClass(Query4Sort.OUTPUT_VALUE_CLASS);
 	} else if ("Query5".equalsIgnoreCase(otherArgs[0])) {
 		job.setReducerClass(Query5.ReducerImpl.class);
 		job.setMapperClass(Query5.MapperImpl.class);
 		job.setOutputKeyClass(Query5.OUTPUT_KEY_CLASS);
 		job.setOutputValueClass(Query5.OUTPUT_VALUE_CLASS);
+	} else if ("Query5Sort".equalsIgnoreCase(otherArgs[0])) {
+		job.setReducerClass(Query5Sort.ReducerImpl.class);
+		job.setMapperClass(Query5Sort.MapperImpl.class);
+		job.setOutputKeyClass(Query5Sort.OUTPUT_KEY_CLASS);
+		job.setOutputValueClass(Query5Sort.OUTPUT_VALUE_CLASS);
 	} else if ("Query6".equalsIgnoreCase(otherArgs[0])) {
 		job.setReducerClass(Query6.ReducerImpl.class);
 		job.setMapperClass(Query6.MapperImpl.class);
 		job.setOutputKeyClass(Query6.OUTPUT_KEY_CLASS);
 		job.setOutputValueClass(Query6.OUTPUT_VALUE_CLASS);
-	} else if ("WordCount".equalsIgnoreCase(otherArgs[0])) {
-		job.setReducerClass(WordCount.ReducerImpl.class);
-		job.setMapperClass(WordCount.MapperImpl.class);
-		job.setOutputKeyClass(WordCount.OUTPUT_KEY_CLASS);
-		job.setOutputValueClass(WordCount.OUTPUT_VALUE_CLASS);
-	} else if ("AccessLog".equalsIgnoreCase(otherArgs[0])) {
-	    job.setReducerClass(AccessLog.ReducerImpl.class);
-	    job.setMapperClass(AccessLog.MapperImpl.class);
-	    job.setOutputKeyClass(AccessLog.OUTPUT_KEY_CLASS);
-	    job.setOutputValueClass(AccessLog.OUTPUT_VALUE_CLASS);
+	} else if ("Query6Sort".equalsIgnoreCase(otherArgs[0])) {
+		job.setMapperClass(Query6Sort.MapperImpl.class);
+		job.setOutputKeyClass(Query6Sort.OUTPUT_KEY_CLASS);
+		job.setOutputValueClass(Query6Sort.OUTPUT_VALUE_CLASS);
 	} else {
 	    System.out.println("Unrecognized job: " + otherArgs[0]);
 	    System.exit(-1);
