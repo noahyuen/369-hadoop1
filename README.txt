@@ -34,7 +34,7 @@ representation of the month/year back into its english abbreviation as represent
 For query 6, my map split each line of the access log to obtain the day/month/year of each log and emitted the
 day/month/year as the key with the bytes for that log as the value. My reduce phase then summed all the bytes paired
 with each day/month/year combination. To sort the output by byte count, I created an additional map-reduce job whose
-map emitted the byte count as the key and day/month/year as the value. 
+map emitted the byte count as the key and day/month/year as the value.
 
 
 
